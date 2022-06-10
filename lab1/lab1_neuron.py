@@ -11,6 +11,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
+##
+# импорт
 # Считываем данные 
 # df = pd.read_csv('https://archive.ics.uci.edu/ml/'
 #     'machine-learning-databases/iris/iris.data', header=None)

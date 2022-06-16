@@ -33,6 +33,7 @@ class MLP:
         # веса инициализируем случайными числами, но теперь будем хранить их списком
         self.weights = [
             np.random.uniform(-2, 2, size=(inputSize,hiddenSizes)),  # веса скрытого слоя
+            np.random.uniform(-2, 2, size=(hiddenSizes,hiddenSizes)),
             np.random.uniform(-2, 2, size=(hiddenSizes,outputSize))  # веса выходного слоя
         ]
         self.learning_rate = learning_rate
@@ -50,9 +51,11 @@ class MLP:
     def feed_forward(self, x):
         input_ = x # входные сигналы
         hidden_ = self.sigmoid(np.dot(input_, self.weights[0])) # выход скрытого слоя = сигмоида(входные сигналы*веса скрытого слоя)
-        output_ = self.sigmoid(np.dot(hidden_, self.weights[1]))# выход сети (последнего слоя) = сигмоида(выход скрытого слоя*веса выходного слоя)
+        hidden_2 = self.sigmoid(np.dot(hidden_, self.weights[1])) # выход скрытого слоя = сигмоида(входные сигналы*веса скрытого слоя)
         
-        self.layers = [input_, hidden_, output_]
+        output_ = self.sigmoid(np.dot(hidden_2, self.weights[2]))# выход сети (последнего слоя) = сигмоида(выход скрытого слоя*веса выходного слоя)
+        
+        self.layers = [input_, hidden_, hidden_2, output_]
         return self.layers[-1]
     
    

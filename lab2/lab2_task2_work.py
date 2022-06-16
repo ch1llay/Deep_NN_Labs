@@ -22,7 +22,7 @@ inputSize = X.shape[1] # количество входных сигналов р
 hiddenSizes = 10 # задаем число нейронов скрытого (А) слоя 
 outputSize = 3 # количество выходных сигналов равно количеству классов задачи
 
-iterations = 1000000
+iterations = 10000
 learning_rate = 0.1
 
 net = MLP(inputSize, outputSize, learning_rate, hiddenSizes)
@@ -36,4 +36,4 @@ for i in range(iterations):
 
 # считаем ошибку на обучающей выборке
 pr = net.predict(X)
-print(sum(abs(y-(pr>0.5))))
+print(sum(abs((y-pr)>0.5)))

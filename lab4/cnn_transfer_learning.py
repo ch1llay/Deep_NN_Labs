@@ -79,7 +79,7 @@ for param in net.parameters():
 # так как выходной слой AlexNet содержит 1000 нейронов (по количеству классов в ImageNet)
 # то нам нужно его заменить на слой, содержащий только 2 класса
 
-num_classes = 2
+num_classes = 3
 
 new_classifier = net.classifier[:-1] # берем все слой классификатора кроме последнего
 new_classifier.add_module('fc',nn.Linear(4096,num_classes))# добавляем последним стоем новый

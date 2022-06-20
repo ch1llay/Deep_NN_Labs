@@ -167,4 +167,4 @@ for i,j in zip(inputs, pred_class):
 
 
 # Нашу модель можно сохранить в файл для дальнейшего использования
-torch.save(net.state_dict(), 'CnNet.ckpt')
+torch.save(net.state_dict(), 'AnimalsNet.ckpt')
